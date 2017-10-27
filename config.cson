@@ -1,0 +1,41 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "6a2326f3-c4e1-41bb-8aab-959205cd7fb4"
+    php:
+      cs_fixer_path: "/usr/local/bin/php-cs-fixer"
+    xml: {}
+  core:
+    telemetryConsent: "limited"
+  editor:
+    fontSize: 11
+    invisibles: {}
+    showIndentGuide: true
+    softWrap: true
+  emmet: {}
+  "exception-reporting":
+    userId: "da3971fc-1e51-4c2a-3e63-f57e014de0a0"
+  "file-header":
+    autoAddingHeaderEnabled: false
+    autoAddingHeaderOnSaving: false
+    email: "ctosterhout@alaska.edu"
+    ignoreListForAutoUpdateAndAddingHeader: [
+      "text.xml"
+      "text.html.basic"
+    ]
+    license: "Released under MIT License. Copyright 2016 University of Alaska Southeast.  For more details, see https://opensource.org/licenses/MIT"
+    numOfEmptyLinesAfterNewHeader: 1
+    projectName: "BERT"
+    realname: "Colin Osterhout"
+    username: "ctosterhout"
+  welcome:
+    showOnStartup: false
+".coffee.source":
+  editor:
+    tabLength: 2
+".html.text":
+  editor:
+    tabLength: 4
+".html.text.vue":
+  editor:
+    tabLength: 2

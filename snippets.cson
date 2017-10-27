@@ -1,0 +1,220 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#  'Console log':
+#   'prefix': 'log'
+#   'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+'.text.xml.xsl':
+  'xsltdoc-short':
+    'prefix': 'xds'
+    'body': "<xd:doc>\n\t$1\n</xd:doc>"
+  'xsltdoc-long':
+    'prefix': 'xdl'
+    'body': "<xd:doc>\n\t<xd:short>$1</xd:short>\n\t<xd:detail>\n\t\t<p>$2</p>\n\t</xd:detail>\n</xd:doc>"
+  'xsltdoc-param':
+    'prefix': 'xdp'
+    'body': "<xd:param name=\"$1\" type=\"$2\">$3</xd:param>"
+  'log-error':
+    'prefix': 'loge'
+    'body': "<xsl:call-template name=\"log-error\">\n\t<xsl:with-param name=\"message\">$1</xsl:with-param>\n</xsl:call-template>"
+  'log-warning':
+    'prefix': 'logw'
+    'body': "<xsl:call-template name=\"log-warning\">\n\t<xsl:with-param name=\"message\">$1</xsl:with-param>\n</xsl:call-template>"
+  'log-info':
+    'prefix': 'logi'
+    'body': "<xsl:call-template name=\"log-info\">\n\t<xsl:with-param name=\"message\">$1</xsl:with-param>\n</xsl:call-template>"
+  'call-template':
+    'prefix': 'xct'
+    'body': "<xsl:call-template name=\"$1\"/>"
+  'call-template-with-parameter':
+    'prefix': 'xctp'
+    'body': "<xsl:call-template name=\"$1\">\n\t<xsl:with-param name=\"$2\"></xsl:with-param>\n</xsl:call-template>"
+  'apply-templates':
+    'prefix': 'xat'
+    'body': "<xsl:apply-templates select=\"$1\"/>"
+  'attribute':
+    'prefix': 'xatt'
+    'body': "<xsl:attribute name=\"$1\">\n\t$2\n</xsl:attribute>"
+  'apply-templates-with-parameter':
+    'prefix': 'xcta'
+    'body': "<xsl:apply-templates select=\"\">\n\t<xsl:with-param name=\"\"></xsl:with-param>\n</xsl:apply-template>"
+  'param':
+    'prefix': 'xpa'
+    'body': "<xsl:param name=\"$1\" select=\"$2\"/>"
+  'with-param':
+    'prefix': 'xwp'
+    'body': "<xsl:with-param name=\"$1\" select=\"$2\"/>"
+  'variable-with-select':
+    'prefix': 'xvas'
+    'body': "<xsl:variable name=\"$1\" select=\"$2\"/>"
+  'value-of':
+    'prefix': 'xv'
+    'body': "<xsl:value-of select=\"$1\"/>"
+  'variable':
+    'prefix': 'xva'
+    'body': "<xsl:variable name=\"$1\">\n\t$2\n</xsl:variable>"
+  'choose':
+    'prefix': 'xch'
+    'body': "<xsl:choose>\n\t<xsl:when test=\"$1\">\n\t</xsl:when>\n\t<xsl:otherwise>\n\t</xsl:otherwise>\n</xsl:choose>"
+  'when':
+    'prefix': 'xwhen'
+    'body': "<xsl:when test=\"$1\">\n</xsl:when>"
+  'if':
+    'prefix': 'xif'
+    'body': "<xsl:if test=\"$1\">\n\t$2\n</xsl:if>"
+  'copy-of':
+    'prefix': 'xc'
+    'body': "<xsl:copy-of select=\"$1\"/>"
+  'template-with-name':
+    'prefix': 'xtn'
+    'body': "<xsl:template name=\"$1\">\n$2</xsl:template>"
+  'template-with-match':
+    'prefix': 'xtm'
+    'body': "<xsl:template match=\"$1\">\n$2</xsl:template>"
+  'for-each':
+    'prefix': 'xfe'
+    'body': "<xsl:for-each select=\"$1\">\n\t$2\n</xsl:for-each>"
+  'comment-xslt':
+    'prefix': 'xcom'
+    'body': "<xsl:comment>$1</xsl:comment>"
+  'comment-source':
+    'prefix': 'hcom'
+    'body': "<!--\n\t$1\n-->"
+  'new-stylesheet':
+    'prefix': 'x!'
+    'body': '''
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet
+    version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xd="http://www.pnp-software.com/XSLTdoc"
+    xmlns:string="my:string"
+    exclude-result-prefixes="string xd"
+    >
+
+    <xsl:import href="../include/error.xslt"/>
+    <xsl:import href="../include/string.xslt"/>
+    <xd:doc type="stylesheet">
+        <xd:short>$1</xd:short>
+        <xd:detail>
+            <p>$2</p>
+        </xd:detail>
+        <xd:author>Colin Osterhout (ctoterhout@alaska.edu)</xd:author>
+        <xd:copyright>University of Alaska Southeast, 2016</xd:copyright>
+    </xd:doc>
+
+    <xsl:strip-space elements="*"/>
+    <xsl:output
+          method='html'
+          indent='yes'
+          omit-xml-declaration='yes'
+          />
+
+    <xsl:template match="/">
+
+    </xsl:template>
+</xsl:stylesheet>
+'''
+  'xsltdoc-stylesheet':
+    'prefix': 'xdss'
+    'body': '''
+    <xd:doc type="stylesheet">
+        <xd:short>$1</xd:short>
+        <xd:detail>
+            <p>$2</p>
+        </xd:detail>
+        <xd:author>Colin Osterhout (ctosterhout@alaska.edu)</xd:author>
+        <xd:copyright>University of Alaska Southeast, 2016</xd:copyright>
+    </xd:doc>
+'''
+  'validate-nodes':
+    'prefix': 'xvn'
+    'body': '''
+  <!-- Define the valid node specifications -->
+  <xsl:variable name="rtfValidNodes">
+      <nodedefs>
+          <node>
+              <path>$1</path>
+              <regex>$2</regex>
+              <flags>$3</flags>
+              <level>$4</level>
+              <message>$5</message>
+          </node>
+      </nodedefs>
+  </xsl:variable>
+
+  <!-- Call the validate-nodes template which does the heavy lifting -->
+  <xsl:call-template name="validate-nodes">
+      <xsl:with-param name="nsValidDef" select="exsl:node-set($rtfValidNodes)"/>
+      <xsl:with-param name="nodeParentNode" select="."/>
+  </xsl:call-template>
+'''
+  'validate-node-def':
+    'prefix': 'xvnd'
+    'body': '''
+  <node>
+      <path>$1</path>
+      <regex>$2</regex>
+      <flags>$3</flags>
+      <level>$4</level>
+      <message>$5</message>
+  </node>
+'''
+
+'.source.js':
+  'License - MIT':
+    'prefix': 'mit'
+    'body': """
+/*
+This work released under the MIT License (MIT)
+Copyright (c) 2016 University of Alaska Southeast
+Author: Colin Osterhout <ctosterhout@alaska.edu>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+    """
+  'if, else if, else':
+    'prefix': 'ieie'
+    'body': """
+      if (${1:true}) {
+        $2
+        } else if (${3:false}) {
+          $4
+          } else {
+            $5
+          }
+      """
+  'IIFE':
+    'prefix': 'iife'
+    'body': '''
+;(function(mymodule) {
+    'use strict';
+    mymodule(window.jQuery, window, document);
+}(function($, window, document) {
+    $(function () {
+        'use strict';
+
+        // DOM is ready
+        $1
+    });
+}));
+'''
